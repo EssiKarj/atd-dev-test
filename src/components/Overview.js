@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 
 //Components
 import Product from './Product'
 
-const Overview = () => {
-
-  const [products, setProducts] = useState({})
+const Overview = ({ products, setProducts, results, query }) => {
 
   useEffect(() => {
     const getData = async () => {
@@ -24,12 +22,16 @@ const Overview = () => {
   return (
     <div className='overview-container'>
       <h2>Travel Search</h2>
-      {products.length ?
-        products.map((product, index) => {
-          return <Product key={index} title={product.title} image={product.img_sml} dest={product.dest} />
+      {results.length ?
+        results.map((result, index) => {
+          return <Product key={index} title={result.title} image={result.img_sml} dest={result.dest} />
         })
-        :
-        <h2>Loading...</h2>
+        : products.length ?
+          products.map((product, index) => {
+            return <Product key={index} title={product.title} image={product.img_sml} dest={product.dest} />
+          })
+          :
+          <h2>Loading...</h2>
       }
     </div>
   )
