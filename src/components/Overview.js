@@ -21,7 +21,6 @@ const Overview = ({ products, setProducts, results, query }) => {
 
   return (
     <div className='overview-container'>
-      <h2>Travel Search</h2>
       {results.length ?
         results.map((result, index) => {
           return <Product key={index} title={result.title} image={result.img_sml} dest={result.dest} />
@@ -31,7 +30,7 @@ const Overview = ({ products, setProducts, results, query }) => {
             return <Product key={index} title={product.title} image={product.img_sml} dest={product.dest} />
           })
           :
-          <h2>Loading...</h2>
+          <h2 className='loading'>Loading...</h2>
       }
     </div>
   )

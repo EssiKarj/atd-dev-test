@@ -10,7 +10,8 @@ const App = () => {
   const [results, setResults] = useState('')
 
   return (
-    <div>
+    <div className='main-container'>
+      <h2>Travel Search</h2>
       <SearchField
         query={query}
         setQuery={setQuery}
