@@ -5,30 +5,56 @@
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+  color: $accent-color;
 }
 
 .main-container{
   background-color: $base-color;
-  padding: 50px;
+  padding-bottom: 100px;
   min-height: 100vh;
+}
+
+//Main image and title
+.hero{
+  background-image: url('../images/hero-img.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 80vh;
+  width: 100vw;
+  position: relative;
+  h2{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    font-size: 100px;
+    color: #ffff;
+  }
 }
 
 //Loading text before data is displayed
 .loading{
   position: absolute;
-  top: 50vh;
+  top: 90vh;
 }
 
+//Search field and pop-up text
 .search-container{
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  position: relative;
   width: 100%;
   align-items: center;
   gap: 10px;
-  height: 20vh;
+  height: 10vh;
   form{
     display: flex;
+    background-color: $base-color;
+    border-radius: 10px;
+    position: absolute;
+    top: -50px;
+    padding: 10px 20px;
+    order: 0;
   }
   input{
     width: 300px;
@@ -43,9 +69,9 @@
     outline: 2px solid $accent-color;
   }
   button{
-    width: 100px;
+    width: 90px;
     height: 42px;
-    margin: 8px 0;
+    margin: 8px -2px 8px 5px;
     border: none;
     background: none;
     font-size: large;
@@ -53,7 +79,11 @@
   button:hover{
     text-decoration: underline;
   }
-  
+  h3{
+    font-size: medium;
+    position: relative;
+    margin-top: 30px;
+  }
 }
 
 //product overview & display
@@ -63,9 +93,9 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   .product-container{
-    background-color: $product-bg;
+    background-color: #ffff;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -73,6 +103,7 @@
     width: 350px;
     height: 450px;
     border-radius: 5px;
+    border-bottom: 2px solid $accent-color;
     gap: 20px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 6px 2px;
     img{
@@ -83,13 +114,47 @@
       height: 100%;
       h2, h3{
         text-align: center;
-        color: $accent-color;
         height: 50%;
       }
       h3{
         color: $main-color;
         padding-top: 18px;
       }
+    }
+  }
+  .product-container:hover{
+    background-color: #b0d5e6;
+  }
+}
+
+//Media breakpoint: Mobile
+@media screen and (max-width: 480px){
+  .loading{
+    top: 80vh
+  }
+  .hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    h2{
+      font-size: 80px;
+      position: relative;
+      top: 0;
+      left: 0;
+      text-align: center;
+    }
+  }
+  .search-container{
+    form{
+    padding: 5px 12px;
+    input{
+      width: 250px;
+    }
+    button{
+      width: 80px;
+      margin: 8px 0;
+    }
     }
   }
 }

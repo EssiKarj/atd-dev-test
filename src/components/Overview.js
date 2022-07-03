@@ -8,6 +8,7 @@ const Overview = ({ products, setProducts, results, query }) => {
 
   useEffect(() => {
     const getData = async () => {
+      if (!!products.length) return
       try {
         const { data } = await axios.get('https://global.atdtravel.com/api/products?geo=en')
         setProducts(data.data)
@@ -17,7 +18,7 @@ const Overview = ({ products, setProducts, results, query }) => {
     }
 
     getData()
-  }, [])
+  }, [products, setProducts])
 
   return (
     <div className='overview-container'>

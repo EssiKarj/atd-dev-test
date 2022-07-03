@@ -11,7 +11,9 @@ const App = () => {
 
   return (
     <div className='main-container'>
-      <h2>Travel Search</h2>
+      <div className='hero'>
+        <h2>Travel Search</h2>
+      </div>
       <SearchField
         query={query}
         setQuery={setQuery}
