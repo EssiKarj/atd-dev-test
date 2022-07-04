@@ -4,8 +4,8 @@ import axios from 'axios'
 //Components
 import Product from './Product'
 
-const Overview = ({ products, setProducts, results, query }) => {
-
+const Overview = ({ products, setProducts, results }) => {
+  //Makes an API request on first page load and saves the data to a state
   useEffect(() => {
     const getData = async () => {
       if (!!products.length) return
@@ -16,7 +16,6 @@ const Overview = ({ products, setProducts, results, query }) => {
         console.log(error)
       }
     }
-
     getData()
   }, [products, setProducts])
 

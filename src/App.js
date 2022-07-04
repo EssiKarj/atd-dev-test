@@ -5,9 +5,9 @@ import Overview from "./components/Overview";
 import SearchField from './components/SearchField';
 
 const App = () => {
-  const [products, setProducts] = useState({})
-  const [query, setQuery] = useState('')
-  const [results, setResults] = useState('')
+  const [products, setProducts] = useState({}) //stores all product data
+  const [query, setQuery] = useState('') //stores user input from search field
+  const [results, setResults] = useState('') //stores products that match users input
 
   return (
     <div className='main-container'>
@@ -17,7 +17,6 @@ const App = () => {
       <SearchField
         query={query}
         setQuery={setQuery}
-        results={results}
         setResults={setResults}
         products={products}
       />
@@ -25,7 +24,6 @@ const App = () => {
         products={products}
         setProducts={setProducts}
         results={results}
-        query={query}
       />
     </div>
   );
